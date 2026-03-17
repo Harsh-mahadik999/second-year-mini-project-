@@ -5,6 +5,7 @@ import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 import GlassCard from '../src/components/GlassCard';
 import ProgressBar from '../src/components/ProgressBar';
+import PageIntroOverlay from '../src/components/PageIntroOverlay';
 
 export default function Roadmap() {
   const [selectedPath, setSelectedPath] = useState('fullstack');
@@ -232,6 +233,7 @@ export default function Roadmap() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <PageIntroOverlay title="Roadmap" subtitle="Your Learning Path Awaits" />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
@@ -239,11 +241,15 @@ export default function Roadmap() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">
-              Career <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Roadmap</span>
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Career <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Roadmap</span>
             </h1>
-            <p className="text-muted-foreground">Your personalized learning path to career success</p>
+            <p className="text-lg text-foreground/60 max-w-2xl mb-6">
+              Choose your career path and follow a structured learning journey. Each roadmap breaks down complex goals into 
+              achievable milestones with specific skills, timelines, and progress tracking to accelerate your professional growth.
+            </p>
+            <div className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent w-32 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">

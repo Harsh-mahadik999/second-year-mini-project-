@@ -12,9 +12,11 @@ const GlassCard: React.FC<GlassCardProps> = ({ children, className = '', hover =
   return (
     <motion.div
       onClick={onClick}
-      whileHover={hover ? { y: -4, scale: 1.02 } : {}}
-      className={`bg-card/50 backdrop-blur-lg border border-border/50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${className}`}
+      whileHover={hover ? { y: -6, scale: 1.01 } : {}}
+      transition={{ type: 'spring', stiffness: 220, damping: 20 }}
+      className={`glass-panel relative overflow-hidden rounded-2xl p-6 transition-all duration-300 ${className}`}
     >
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/70 via-transparent to-sky-200/25" />
       {children}
     </motion.div>
   );

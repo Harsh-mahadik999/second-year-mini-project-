@@ -100,36 +100,19 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "'Inter'",
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
+          "'Space Grotesk'",
           "'Segoe UI'",
-          "Roboto",
-          "'Helvetica Neue'",
-          "Arial",
           "'Noto Sans'",
           "sans-serif"
         ],
         serif: [
-          "'Lora'",
-          "ui-serif",
-          "Georgia",
-          "Cambria",
-          "'Times New Roman'",
-          "Times",
-          "serif"
+          "'Syne'",
+          "'Space Grotesk'",
+          "sans-serif"
         ],
         mono: [
-          "'Space Mono'",
-          "ui-monospace",
-          "SFMono-Regular",
-          "Menlo",
-          "Monaco",
+          "'JetBrains Mono'",
           "Consolas",
-          "'Liberation Mono'",
-          "'Courier New'",
           "monospace"
         ]
       }

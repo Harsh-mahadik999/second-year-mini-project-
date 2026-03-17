@@ -5,6 +5,7 @@ import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 import GlassCard from '../src/components/GlassCard';
 import ProgressBar from '../src/components/ProgressBar';
+import PageIntroOverlay from '../src/components/PageIntroOverlay';
 
 export default function Skills() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -114,6 +115,7 @@ export default function Skills() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <PageIntroOverlay title="Skills" subtitle="Master In-Demand Technologies" />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
@@ -121,11 +123,15 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Skills</span> & Market Analysis
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Skills</span> & Market Analysis
             </h1>
-            <p className="text-muted-foreground">Discover in-demand skills and track your progress</p>
+            <p className="text-lg text-foreground/60 max-w-2xl mb-6">
+              Track your mastery of in-demand technologies and analyze real-time market trends. Discover which skills 
+              are most valuable, see job market data, and understand salary expectations for your technical expertise.
+            </p>
+            <div className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent w-32 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

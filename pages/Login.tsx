@@ -39,20 +39,22 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-center p-4">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden p-4">
+      <div className="pointer-events-none absolute -left-20 -top-16 h-64 w-64 rounded-full bg-cyan-300/30 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-blue-400/25 blur-3xl" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="w-full max-w-md"
       >
-        <div className="bg-card/50 backdrop-blur-lg border border-border/50 rounded-2xl p-8 shadow-2xl">
+        <div className="glass-panel rounded-3xl border-white/70 p-8 shadow-2xl">
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <span className="text-white font-bold text-xl">AI</span>
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500">
+              <span className="text-xl font-bold text-white">NF</span>
             </div>
-            <h1 className="text-2xl font-bold mb-2">Welcome Back</h1>
-            <p className="text-muted-foreground">Sign in to continue your career journey</p>
+            <h1 className="heading-display mb-2 text-2xl font-bold text-slate-900">Welcome Back</h1>
+            <p className="text-slate-600">Sign in to continue building with NovaFlow</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
@@ -68,7 +70,7 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="student@demo.com"
-                  className="w-full pl-10 pr-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full rounded-lg border border-slate-200 bg-white/80 py-3 pl-10 pr-4 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -86,7 +88,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="demo123"
-                  className="w-full pl-10 pr-12 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full rounded-lg border border-slate-200 bg-white/80 py-3 pl-10 pr-12 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <button
@@ -102,7 +104,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 py-3 font-semibold text-white shadow-lg shadow-blue-300/30 transition-all duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -118,17 +120,17 @@ export default function Login() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-border" />
+                <div className="w-full border-t border-slate-200" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-card text-muted-foreground">Or continue with</span>
+                <span className="bg-card px-2 text-slate-500">Or continue with</span>
               </div>
             </div>
 
             <button
               onClick={handleGoogleLogin}
               disabled={isLoading}
-              className="w-full mt-4 py-3 bg-background border border-border rounded-lg hover:bg-accent transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 flex w-full items-center justify-center rounded-lg border border-slate-200 bg-white/80 py-3 transition-all duration-200 hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Chrome className="w-5 h-5 mr-2" />
               Google
@@ -136,16 +138,16 @@ export default function Login() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-muted-foreground">
+            <p className="text-slate-600">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-blue-500 hover:text-blue-600 font-medium">
+              <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-700">
                 Sign up
               </Link>
             </p>
           </div>
 
-          <div className="mt-4 p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-            <p className="text-sm text-center text-blue-600">
+          <div className="mt-4 rounded-lg border border-blue-500/20 bg-blue-500/10 p-3">
+            <p className="text-center text-sm text-blue-700">
               <strong>Demo Credentials:</strong><br />
               Email: student@demo.com<br />
               Password: demo123

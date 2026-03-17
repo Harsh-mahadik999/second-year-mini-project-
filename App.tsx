@@ -3,7 +3,8 @@ import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -16,23 +17,51 @@ import Community from './pages/Community';
 import Market from './pages/Market';
 import NotFound from './pages/NotFound';
 
+const pageTransition = {
+  initial: { opacity: 0, y: 18, filter: 'blur(4px)' },
+  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+  exit: { opacity: 0, y: -12, filter: 'blur(3px)' }
+};
+
+const RouteShell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <motion.div
+    variants={pageTransition}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
+  >
+    {children}
+  </motion.div>
+);
+
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<RouteShell><Home /></RouteShell>} />
+        <Route path="/login" element={<RouteShell><Login /></RouteShell>} />
+        <Route path="/signup" element={<RouteShell><Signup /></RouteShell>} />
+        <Route path="/dashboard" element={<RouteShell><Dashboard /></RouteShell>} />
+        <Route path="/skills" element={<RouteShell><Skills /></RouteShell>} />
+        <Route path="/roadmap" element={<RouteShell><Roadmap /></RouteShell>} />
+        <Route path="/arcade" element={<RouteShell><Arcade /></RouteShell>} />
+        <Route path="/community" element={<RouteShell><Community /></RouteShell>} />
+        <Route path="/market" element={<RouteShell><Market /></RouteShell>} />
+        <Route path="*" element={<RouteShell><NotFound /></RouteShell>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Theme appearance="inherit" radius="large" scaling="100%">
       <Router>
         <main className="min-h-screen font-sans">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/roadmap" element={<Roadmap />} />
-            <Route path="/arcade" element={<Arcade />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
           <ToastContainer
             position="top-right"
             autoClose={3000}

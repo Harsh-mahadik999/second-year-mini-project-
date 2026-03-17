@@ -4,6 +4,7 @@ import { Heart, MessageCircle, Share, Plus, Search, Filter, TrendingUp } from 'l
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 import GlassCard from '../src/components/GlassCard';
+import PageIntroOverlay from '../src/components/PageIntroOverlay';
 
 export default function Community() {
   const [posts, setPosts] = useState([
@@ -79,6 +80,7 @@ export default function Community() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <PageIntroOverlay title="Community" subtitle="Connect With Peers" />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
@@ -86,11 +88,15 @@ export default function Community() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Community</span> Hub
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Community</span> Hub
             </h1>
-            <p className="text-muted-foreground">Connect, share, and learn with fellow developers</p>
+            <p className="text-lg text-foreground/60 max-w-2xl mb-6">
+              Connect, collaborate, and learn with thousands of developers worldwide. Share project ideas, ask questions, 
+              receive feedback, and build meaningful relationships within a vibrant community of learners and professionals.
+            </p>
+            <div className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent w-32 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

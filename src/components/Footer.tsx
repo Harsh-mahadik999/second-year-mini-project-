@@ -3,60 +3,60 @@ import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border/50 mt-20">
+    <footer className="relative mt-10 overflow-hidden border-t border-black/10 bg-white/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">AI</span>
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black">
+                <span className="text-sm font-bold text-white">LA</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                CareerAI
+              <span className="heading-display text-xl font-extrabold text-black">
+                Les Studio
               </span>
             </div>
-            <p className="text-muted-foreground mb-4 max-w-md">
-              Empowering students with AI-driven career guidance and gamified skill development for the future of work.
+            <p className="mb-4 max-w-md text-black/65">
+              Creative digital agency. Strategy, design and development for brands that want work with attitude.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+              <a href="#" className="rounded-lg border border-black/15 bg-white p-2 text-black/65 transition-colors hover:bg-black hover:text-white">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+              <a href="#" className="rounded-lg border border-black/15 bg-white p-2 text-black/65 transition-colors hover:bg-black hover:text-white">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+              <a href="#" className="rounded-lg border border-black/15 bg-white p-2 text-black/65 transition-colors hover:bg-black hover:text-white">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+              <a href="#" className="rounded-lg border border-black/15 bg-white p-2 text-black/65 transition-colors hover:bg-black hover:text-white">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Platform</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Skills Assessment</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Career Roadmaps</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">AI Mentor</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Arcade Learning</a></li>
+            <h3 className="mb-4 font-semibold text-black">Services</h3>
+            <ul className="space-y-2 text-sm text-black/65">
+              <li><a href="#" className="transition-colors hover:text-black">Brand Sites</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Product Design</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Motion Systems</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Technical Consulting</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Support</a></li>
+            <h3 className="mb-4 font-semibold text-black">Agency</h3>
+            <ul className="space-y-2 text-sm text-black/65">
+              <li><a href="#" className="transition-colors hover:text-black">Projects</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Team</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Contact</a></li>
+              <li><a href="#" className="transition-colors hover:text-black">Blog</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border/50 mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2026 CareerAI. All rights reserved.</p>
+        <div className="mt-8 border-t border-black/10 pt-8 text-center text-sm text-black/50">
+          <p>&copy; 2026 Les Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>
