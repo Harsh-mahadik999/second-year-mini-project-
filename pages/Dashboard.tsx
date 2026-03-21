@@ -5,7 +5,6 @@ import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 import GlassCard from '../src/components/GlassCard';
 import ProgressBar from '../src/components/ProgressBar';
-import ChatBot from '../src/components/ChatBot';
 import PageIntroOverlay from '../src/components/PageIntroOverlay';
 
 export default function Dashboard() {
@@ -136,7 +135,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             <div>
               <GlassCard>
                 <h2 className="text-xl font-semibold mb-6 flex items-center">
@@ -166,10 +165,6 @@ export default function Dashboard() {
                   </button>
                 </div>
               </GlassCard>
-            </div>
-
-            <div>
-              <ChatBot />
             </div>
           </div>
         </motion.div>

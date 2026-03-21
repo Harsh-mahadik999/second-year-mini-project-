@@ -21,7 +21,7 @@ export default function Home() {
 
     const timer = window.setTimeout(() => {
       setShowIntro(false);
-    }, 2600);
+    }, 2200);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -33,147 +33,78 @@ export default function Home() {
     };
   }, [showIntro]);
 
-  const headline = useMemo(
-    () => ['We', 'craft', 'sensibly', 'different', 'digital', 'products.'],
-    []
-  );
-
   const cards = [
-    { title: 'Brand Platforms', text: 'Digital experiences with strong identity and measurable conversion.' },
-    { title: 'Interactive Content', text: 'Narrative pages and product storytelling with motion that feels intentional.' },
-    { title: 'Growth Systems', text: 'Analytics-ready architecture for teams scaling product and marketing together.' }
+    { title: 'Structured Learning', text: 'Track your progress through carefully designed learning paths that adapt to your pace.' },
+    { title: 'Real Skills Training', text: 'Practical exercises and projects that build real competencies for actual job applications.' },
+    { title: 'Community Growth', text: 'Learn together with peers, share knowledge, and grow your professional network.' }
   ];
 
   return (
-    <div className="min-h-screen bg-transparent text-foreground editorial-grid">
+    <div className="min-h-screen bg-amber-50 text-slate-900">
       <IntroOverlay show={showIntro} />
       <Header />
 
       <main className="relative overflow-hidden px-4 sm:px-6 lg:px-8">
-        <section className="mx-auto max-w-7xl pb-24 pt-16 lg:pb-28 lg:pt-24">
+        <section className="mx-auto max-w-7xl pb-20 pt-16 lg:pb-24 lg:pt-28">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-black/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]"
+            transition={{ duration: 0.6 }}
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 text-xs font-semibold text-amber-700 uppercase tracking-wider"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            Creative Digital Studio
+            Learning Platform
           </motion.div>
 
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="lg:col-span-8"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="lg:col-span-7"
             >
-              <h1 className="heading-display text-[3rem] font-extrabold leading-[0.92] text-black sm:text-[4.4rem] lg:text-[6.5rem]">
-                <span className="block overflow-hidden">
-                  <motion.span
-                    initial="hidden"
-                    animate="show"
-                    variants={{
-                      hidden: {},
-                      show: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } }
-                    }}
-                    className="inline-flex flex-wrap gap-x-3"
-                  >
-                    {headline.slice(0, 2).map((word) => (
-                      <motion.span
-                        key={word}
-                        variants={{ hidden: { y: '110%' }, show: { y: 0 } }}
-                        transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-                        className="inline-block"
-                      >
-                        {word}
-                      </motion.span>
-                    ))}
-                  </motion.span>
-                </span>
-                <span className="block overflow-hidden">
-                  <motion.span
-                    initial="hidden"
-                    animate="show"
-                    variants={{
-                      hidden: {},
-                      show: { transition: { staggerChildren: 0.06, delayChildren: 0.34 } }
-                    }}
-                    className="inline-flex flex-wrap gap-x-3"
-                  >
-                    {headline.slice(2, 4).map((word) => (
-                      <motion.span
-                        key={word}
-                        variants={{ hidden: { y: '110%' }, show: { y: 0 } }}
-                        transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-                        className="inline-block"
-                      >
-                        {word}
-                      </motion.span>
-                    ))}
-                  </motion.span>
-                </span>
-                <span className="block overflow-hidden text-emerald-700">
-                  <motion.span
-                    initial="hidden"
-                    animate="show"
-                    variants={{
-                      hidden: {},
-                      show: { transition: { staggerChildren: 0.06, delayChildren: 0.48 } }
-                    }}
-                    className="inline-flex flex-wrap gap-x-3"
-                  >
-                    {headline.slice(4).map((word) => (
-                      <motion.span
-                        key={word}
-                        variants={{ hidden: { y: '110%' }, show: { y: 0 } }}
-                        transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-                        className="inline-block"
-                      >
-                        {word}
-                      </motion.span>
-                    ))}
-                  </motion.span>
-                </span>
+              <h1 className="heading-display text-4xl font-bold leading-tight text-amber-950 sm:text-5xl lg:text-6xl">
+                Master Your Skills,<br />
+                <span className="text-amber-700">Shape Your Future</span>
               </h1>
-              <p className="mt-7 max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">
-                Point of encounter between design, strategy and technical execution. We build bold interfaces with strong character and real business outcomes.
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-700">
+                Join thousands of learners building real expertise. Learn, practice, and grow your career with structured guidance and real community support.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link
                   to="/signup"
-                  className="inline-flex items-center justify-center rounded-xl bg-black px-7 py-3.5 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-black/85"
+                  className="inline-flex items-center justify-center rounded-xl bg-amber-700 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-amber-800"
                 >
-                  Start Project
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link
                   to="/login"
-                  className="inline-flex items-center justify-center rounded-xl border border-black/20 bg-white/75 px-7 py-3.5 text-sm font-semibold text-black transition hover:border-black"
+                  className="inline-flex items-center justify-center rounded-xl border border-amber-200 bg-white px-8 py-4 text-base font-semibold text-amber-900 transition hover:bg-amber-50"
                 >
-                  View Work
+                  Explore More
                 </Link>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="lg:col-span-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-5"
             >
-              <div className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-xl">
-                <div className="mb-8 flex items-center justify-between border-b border-black/10 pb-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-black/60">Distinctions</p>
-                  <Award className="h-4 w-4 text-emerald-700" />
+              <div className="rounded-2xl border border-amber-100 bg-white p-8 shadow-lg">
+                <div className="mb-8 flex items-center justify-between border-b border-amber-100 pb-6">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-amber-700">Achievements</p>
+                  <Award className="h-5 w-5 text-amber-700" />
                 </div>
-                <div className="space-y-5 text-sm text-black/75">
-                  <p>Awwwards - Honorable Mention</p>
-                  <p>CSSDA - Special Kudos</p>
-                  <p>SiteInspire - Featured Project</p>
+                <div className="space-y-5 text-sm text-slate-700">
+                  <p className="font-medium">✓ Complete skill paths</p>
+                  <p className="font-medium">✓ Real-world projects</p>
+                  <p className="font-medium">✓ Community recognition</p>
                 </div>
-                <div className="mt-9 rounded-2xl bg-black px-4 py-4 text-sm text-white">
-                  100+ digital projects delivered with design precision.
+                <div className="mt-8 rounded-xl bg-amber-700 px-6 py-5 text-base font-medium text-white">
+                  Join 10,000+ learners advancing their careers
                 </div>
               </div>
             </motion.div>
@@ -184,51 +115,58 @@ export default function Home() {
           {cards.map((card, index) => (
             <motion.article
               key={card.title}
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.1 }}
-              className="group rounded-3xl border border-black/10 bg-white/75 p-8 transition hover:-translate-y-1 hover:border-black/25"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group rounded-2xl border border-amber-100 bg-white p-8 transition hover:border-amber-200 hover:shadow-lg hover:shadow-amber-100"
             >
-              <p className="mb-8 text-xs uppercase tracking-[0.2em] text-black/45">0{index + 1}</p>
-              <h3 className="heading-display text-2xl font-bold leading-tight text-black">{card.title}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-black/60">{card.text}</p>
-              <MoveUpRight className="mt-10 h-5 w-5 text-black/40 transition group-hover:text-emerald-700" />
+              <div className="mb-6 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-700 text-white font-semibold">
+                {index + 1}
+              </div>
+              <h3 className="heading-display text-xl font-bold text-amber-950">{card.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-slate-700">{card.text}</p>
+              <div className="mt-6 flex items-center text-amber-700 transition group-hover:translate-x-1">
+                <MoveUpRight className="h-4 w-4" />
+              </div>
             </motion.article>
           ))}
         </section>
 
-        <section className="mx-auto mb-24 max-w-7xl rounded-[2.2rem] border border-black/10 bg-black px-8 py-12 text-white md:px-12 md:py-16">
+        <section className="mx-auto mb-24 max-w-7xl rounded-2xl border border-amber-100 bg-slate-900 px-8 py-16 text-white md:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            transition={{ duration: 0.5 }}
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-white/55">No boring digital experiences</p>
-            <h2 className="heading-display mt-5 max-w-4xl text-4xl font-extrabold leading-[0.94] md:text-6xl">
-              Creative, technical, and just impertinent enough to stand out.
+            <p className="text-sm font-semibold uppercase tracking-widest text-slate-400">Ready to Level Up?</p>
+            <h2 className="heading-display mt-4 max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
+              Start learning today and build the skills employers want.
             </h2>
+            <p className="mt-6 max-w-2xl text-lg text-slate-300">
+              Join our community of learners and start your journey towards mastery and career growth.
+            </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/signup"
-                className="rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500"
+                className="rounded-xl bg-amber-700 px-8 py-3 text-base font-semibold text-white transition hover:bg-amber-800"
               >
-                Talk to us
+                Begin Learning
               </Link>
               <Link
                 to="/login"
-                className="rounded-xl border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+                className="rounded-xl border border-slate-600 px-8 py-3 text-base font-semibold text-white transition hover:border-amber-400 hover:bg-amber-700/10"
               >
-                See capabilities
+                Learn More
               </Link>
             </div>
           </motion.div>
         </section>
 
-        <section className="mx-auto mb-20 max-w-7xl border-t border-black/15 pt-10">
-          <p className="text-sm text-black/65">
-            You will always be welcome. Built in React, animated with Framer Motion, designed to feel crafted instead of generic.
+        <section className="mx-auto mb-20 max-w-7xl border-t border-amber-100 pt-12">
+          <p className="text-base text-slate-700">
+            Built with React and Framer Motion. Designed for learners who want a platform that actually cares about their growth.
           </p>
         </section>
       </main>

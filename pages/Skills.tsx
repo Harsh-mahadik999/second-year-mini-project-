@@ -30,7 +30,8 @@ export default function Skills() {
       marketTrend: 'up',
       description: 'Essential programming language for web development',
       jobs: '50,000+',
-      avgSalary: '$75,000'
+      avgSalary: '$75,000',
+      youtubeLink: 'https://www.youtube.com/playlist?list=PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW'
     },
     {
       id: 2,
@@ -41,7 +42,8 @@ export default function Skills() {
       marketTrend: 'up',
       description: 'Popular JavaScript library for building user interfaces',
       jobs: '35,000+',
-      avgSalary: '$80,000'
+      avgSalary: '$80,000',
+      youtubeLink: 'https://www.youtube.com/playlist?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt'
     },
     {
       id: 3,
@@ -52,7 +54,8 @@ export default function Skills() {
       marketTrend: 'up',
       description: 'Versatile programming language for backend and data science',
       jobs: '60,000+',
-      avgSalary: '$85,000'
+      avgSalary: '$85,000',
+      youtubeLink: 'https://www.youtube.com/playlist?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0'
     },
     {
       id: 4,
@@ -63,7 +66,8 @@ export default function Skills() {
       marketTrend: 'stable',
       description: 'JavaScript runtime for server-side development',
       jobs: '25,000+',
-      avgSalary: '$78,000'
+      avgSalary: '$78,000',
+      youtubeLink: 'https://www.youtube.com/playlist?list=PL78RhpUUKSwfeSOOwfE9x6l5jTjn5LbY3'
     },
     {
       id: 5,
@@ -74,7 +78,8 @@ export default function Skills() {
       marketTrend: 'up',
       description: 'AI technology for predictive analytics and automation',
       jobs: '40,000+',
-      avgSalary: '$95,000'
+      avgSalary: '$95,000',
+      youtubeLink: 'https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU'
     },
     {
       id: 6,
@@ -85,7 +90,8 @@ export default function Skills() {
       marketTrend: 'up',
       description: 'Containerization platform for application deployment',
       jobs: '20,000+',
-      avgSalary: '$82,000'
+      avgSalary: '$82,000',
+      youtubeLink: 'https://www.youtube.com/watch?v=RqTEHSBrYFw'
     }
   ];
 
@@ -239,7 +245,10 @@ export default function Skills() {
                     </div>
                   </div>
 
-                  <button className="w-full mt-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200">
+                  <button
+                    onClick={() => window.open(skill.youtubeLink, '_blank')}
+                    className="w-full mt-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200"
+                  >
                     Start Learning
                   </button>
                 </motion.div>

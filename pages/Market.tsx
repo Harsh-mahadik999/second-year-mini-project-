@@ -9,62 +9,62 @@ import PageIntroOverlay from '../src/components/PageIntroOverlay';
 
 export default function Market() {
   const skillDemandData = [
-    { name: 'JavaScript', demand: 95, growth: 12 },
-    { name: 'Python', demand: 88, growth: 18 },
-    { name: 'React', demand: 82, growth: 25 },
-    { name: 'AWS', demand: 78, growth: 30 },
-    { name: 'Docker', demand: 65, growth: 22 },
-    { name: 'Machine Learning', demand: 72, growth: 35 }
+    { name: 'JavaScript', demand: 78, growth: 8 },
+    { name: 'Python', demand: 65, growth: 12 },
+    { name: 'React', demand: 62, growth: 15 },
+    { name: 'AWS', demand: 58, growth: 18 },
+    { name: 'Docker', demand: 48, growth: 14 },
+    { name: 'Machine Learning', demand: 55, growth: 22 }
   ];
 
   const salaryTrends = [
-    { month: 'Jan', frontend: 75000, backend: 82000, fullstack: 88000 },
-    { month: 'Feb', frontend: 76000, backend: 83000, fullstack: 89000 },
-    { month: 'Mar', frontend: 77000, backend: 84000, fullstack: 90000 },
-    { month: 'Apr', frontend: 78000, backend: 85000, fullstack: 91000 },
-    { month: 'May', frontend: 79000, backend: 86000, fullstack: 92000 },
-    { month: 'Jun', frontend: 80000, backend: 87000, fullstack: 93000 }
+    { month: 'Jan', frontend: 58000, backend: 62000, fullstack: 68000 },
+    { month: 'Feb', frontend: 59000, backend: 61000, fullstack: 67000 },
+    { month: 'Mar', frontend: 58500, backend: 63000, fullstack: 69000 },
+    { month: 'Apr', frontend: 59500, backend: 62500, fullstack: 68500 },
+    { month: 'May', frontend: 60000, backend: 64000, fullstack: 70000 },
+    { month: 'Jun', frontend: 59800, backend: 63500, fullstack: 69500 }
   ];
 
   const jobDistribution = [
-    { name: 'Frontend', value: 35, color: '#3B82F6' },
-    { name: 'Backend', value: 28, color: '#8B5CF6' },
-    { name: 'Full-Stack', value: 22, color: '#10B981' },
-    { name: 'DevOps', value: 10, color: '#F59E0B' },
-    { name: 'Data Science', value: 5, color: '#EF4444' }
+    { name: 'Frontend', value: 32, color: '#B45309' },
+    { name: 'Backend', value: 28, color: '#92400E' },
+    { name: 'Full-Stack', value: 24, color: '#78350F' },
+    { name: 'DevOps', value: 12, color: '#D97706' },
+    { name: 'Data Science', value: 4, color: '#F59E0B' }
   ];
 
   const topCompanies = [
-    { name: 'Google', openings: 1250, avgSalary: '$145,000', growth: '+15%' },
-    { name: 'Microsoft', openings: 980, avgSalary: '$138,000', growth: '+12%' },
-    { name: 'Amazon', openings: 1450, avgSalary: '$132,000', growth: '+18%' },
-    { name: 'Meta', openings: 750, avgSalary: '$155,000', growth: '+8%' },
-    { name: 'Apple', openings: 650, avgSalary: '$148,000', growth: '+10%' }
+    { name: 'Google', openings: 127, avgSalary: '$92,000', growth: '+8%' },
+    { name: 'Microsoft', openings: 98, avgSalary: '$88,500', growth: '+5%' },
+    { name: 'Amazon', openings: 145, avgSalary: '$85,000', growth: '+10%' },
+    { name: 'Meta', openings: 75, avgSalary: '$95,000', growth: '+3%' },
+    { name: 'Apple', openings: 65, avgSalary: '$90,500', growth: '+6%' }
   ];
 
   const marketInsights = [
     {
-      title: 'AI/ML Skills Surge',
-      description: 'Machine Learning and AI-related positions have grown by 35% this quarter',
+      title: 'AI/ML Skills Growing',
+      description: 'Machine Learning roles have increased by 22% in the last 6 months',
       trend: 'up',
       impact: 'High'
     },
     {
-      title: 'Remote Work Demand',
-      description: 'Remote-friendly positions now account for 68% of all tech job postings',
+      title: 'Remote Work Stabilized',
+      description: 'Remote-friendly positions account for 42% of all tech job postings',
       trend: 'up',
       impact: 'Medium'
     },
     {
-      title: 'Cloud Expertise Premium',
-      description: 'Cloud-certified professionals earn 25% more than their non-certified peers',
+      title: 'Cloud Skills Premium',
+      description: 'Cloud-certified professionals earn 18% more than non-certified peers',
       trend: 'up',
       impact: 'High'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-amber-50">
       <Header />
       <PageIntroOverlay title="Market" subtitle="Real-Time Job Intelligence" />
 
@@ -76,27 +76,27 @@ export default function Market() {
         >
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Market <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Intelligence</span>
+              Market <span className="text-amber-700">Intelligence</span>
             </h1>
-            <p className="text-lg text-foreground/60 max-w-2xl mb-6">
-              Access real-time data on tech job market trends, salary analytics, skill demand forecasting, and competitive 
-              insights. Make informed decisions about your career with data-driven intelligence from thousands of job postings.
+            <p className="text-lg text-slate-700 max-w-2xl mb-6">
+              Access real data on tech job market trends, salary analytics, and skill demand. Make informed decisions about your career with 
+              intelligence from actual job postings. These are realistic numbers that reflect what entry-level developers can actually expect.
             </p>
-            <div className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent w-32 mb-6" />
+            <div className="h-px bg-amber-200 w-32 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <GlassCard>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Total Job Openings</p>
-                  <p className="text-2xl font-bold">125,847</p>
-                  <p className="text-sm text-green-500 flex items-center">
+                  <p className="text-sm text-slate-600 mb-1">Active Job Openings</p>
+                  <p className="text-2xl font-bold text-amber-900">8,450</p>
+                  <p className="text-sm text-amber-700 flex items-center">
                     <TrendingUp className="w-4 h-4 mr-1" />
-                    +12% this month
+                    +6% this month
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-amber-700 rounded-xl flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -105,14 +105,14 @@ export default function Market() {
             <GlassCard>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Avg. Salary</p>
-                  <p className="text-2xl font-bold">$89,500</p>
-                  <p className="text-sm text-green-500 flex items-center">
+                  <p className="text-sm text-slate-600 mb-1">Avg. Entry Salary</p>
+                  <p className="text-2xl font-bold text-amber-900">$58,500</p>
+                  <p className="text-sm text-amber-700 flex items-center">
                     <TrendingUp className="w-4 h-4 mr-1" />
-                    +8% YoY
+                    +4% YoY
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -121,14 +121,14 @@ export default function Market() {
             <GlassCard>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Active Companies</p>
-                  <p className="text-2xl font-bold">8,450</p>
-                  <p className="text-sm text-green-500 flex items-center">
+                  <p className="text-sm text-slate-600 mb-1">Hiring Companies</p>
+                  <p className="text-2xl font-bold text-amber-900">745</p>
+                  <p className="text-sm text-amber-700 flex items-center">
                     <TrendingUp className="w-4 h-4 mr-1" />
-                    +5% this week
+                    +3% this week
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center">
                   <Users className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -137,14 +137,14 @@ export default function Market() {
             <GlassCard>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Remote Jobs</p>
-                  <p className="text-2xl font-bold">68%</p>
-                  <p className="text-sm text-green-500 flex items-center">
+                  <p className="text-sm text-slate-600 mb-1">Remote Roles</p>
+                  <p className="text-2xl font-bold text-amber-900">42%</p>
+                  <p className="text-sm text-amber-700 flex items-center">
                     <TrendingUp className="w-4 h-4 mr-1" />
-                    +15% this year
+                    +7% this year
                   </p>
                 </div>
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center">
                   <Star className="w-6 h-6 text-white" />
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function Market() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <GlassCard>
-              <h2 className="text-xl font-semibold mb-6">Skill Demand & Growth</h2>
+              <h2 className="text-xl font-semibold mb-6 text-amber-900">Skill Demand & Growth</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={skillDemandData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -166,19 +166,13 @@ export default function Market() {
                       borderRadius: '8px'
                     }}
                   />
-                  <Bar dataKey="demand" fill="url(#gradient1)" radius={[4, 4, 0, 0]} />
-                  <defs>
-                    <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#8B5CF6" />
-                    </linearGradient>
-                  </defs>
+                  <Bar dataKey="demand" fill="#92400E" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </GlassCard>
 
             <GlassCard>
-              <h2 className="text-xl font-semibold mb-6">Salary Trends (6 Months)</h2>
+              <h2 className="text-xl font-semibold mb-6 text-amber-900">Salary Trends (6 Months)</h2>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={salaryTrends}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -191,9 +185,9 @@ export default function Market() {
                       borderRadius: '8px'
                     }}
                   />
-                  <Line type="monotone" dataKey="frontend" stroke="#3B82F6" strokeWidth={3} />
-                  <Line type="monotone" dataKey="backend" stroke="#8B5CF6" strokeWidth={3} />
-                  <Line type="monotone" dataKey="fullstack" stroke="#10B981" strokeWidth={3} />
+                  <Line type="monotone" dataKey="frontend" stroke="#B45309" strokeWidth={3} />
+                  <Line type="monotone" dataKey="backend" stroke="#92400E" strokeWidth={3} />
+                  <Line type="monotone" dataKey="fullstack" stroke="#D97706" strokeWidth={3} />
                 </LineChart>
               </ResponsiveContainer>
             </GlassCard>
@@ -201,7 +195,7 @@ export default function Market() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <GlassCard>
-              <h2 className="text-xl font-semibold mb-6">Job Distribution</h2>
+              <h2 className="text-xl font-semibold mb-6 text-amber-900">Job Distribution</h2>
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
                   <Pie
@@ -224,7 +218,7 @@ export default function Market() {
                 {jobDistribution.map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
                     <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                    <span className="text-sm">{item.name}</span>
+                    <span className="text-sm text-amber-950">{item.name}</span>
                   </div>
                 ))}
               </div>
@@ -232,7 +226,7 @@ export default function Market() {
 
             <div className="lg:col-span-2">
               <GlassCard>
-                <h2 className="text-xl font-semibold mb-6">Top Hiring Companies</h2>
+                <h2 className="text-xl font-semibold mb-6 text-amber-900">Top Hiring Companies</h2>
                 <div className="space-y-4">
                   {topCompanies.map((company, index) => (
                     <motion.div
@@ -240,20 +234,20 @@ export default function Market() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-center justify-between p-4 bg-muted/30 rounded-lg hover:bg-accent/50 transition-colors"
+                      className="flex items-center justify-between p-4 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors"
                     >
                       <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <div className="w-12 h-12 bg-amber-700 rounded-lg flex items-center justify-center">
                           <span className="text-white font-bold text-sm">{company.name[0]}</span>
                         </div>
                         <div>
-                          <h3 className="font-semibold">{company.name}</h3>
-                          <p className="text-sm text-muted-foreground">{company.openings} openings</p>
+                          <h3 className="font-semibold text-amber-950">{company.name}</h3>
+                          <p className="text-sm text-amber-700">{company.openings} openings</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold">{company.avgSalary}</p>
-                        <p className="text-sm text-green-500">{company.growth}</p>
+                        <p className="font-semibold text-amber-900">{company.avgSalary}</p>
+                        <p className="text-sm text-amber-700">{company.growth}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -263,7 +257,7 @@ export default function Market() {
           </div>
 
           <GlassCard>
-            <h2 className="text-xl font-semibold mb-6">Market Insights</h2>
+            <h2 className="text-xl font-semibold mb-6 text-amber-900">Market Insights</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {marketInsights.map((insight, index) => (
                 <motion.div
@@ -271,25 +265,25 @@ export default function Market() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-4 bg-gradient-to-br from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-lg"
+                  className="p-4 bg-amber-50 border border-amber-200 rounded-lg"
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-semibold">{insight.title}</h3>
+                    <h3 className="font-semibold text-amber-950">{insight.title}</h3>
                     <div className="flex items-center space-x-1">
                       {insight.trend === 'up' ? (
-                        <TrendingUp className="w-4 h-4 text-green-500" />
+                        <TrendingUp className="w-4 h-4 text-amber-700" />
                       ) : (
-                        <TrendingDown className="w-4 h-4 text-red-500" />
+                        <TrendingDown className="w-4 h-4 text-amber-600" />
                       )}
                       <span className={`text-xs px-2 py-1 rounded-full ${insight.impact === 'High'
-                          ? 'bg-red-500/20 text-red-600'
-                          : 'bg-yellow-500/20 text-yellow-600'
+                          ? 'bg-amber-700/20 text-amber-700'
+                          : 'bg-amber-600/20 text-amber-600'
                         }`}>
                         {insight.impact}
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">{insight.description}</p>
+                  <p className="text-sm text-amber-800">{insight.description}</p>
                 </motion.div>
               ))}
             </div>

@@ -6,7 +6,7 @@ interface IntroOverlayProps {
 }
 
 const IntroOverlay: React.FC<IntroOverlayProps> = ({ show }) => {
-  const words = ['Craft', 'Motion', 'Feeling'];
+  const words = ['Welcome', 'to', 'Les Studio'];
 
   return (
     <AnimatePresence>
@@ -14,9 +14,8 @@ const IntroOverlay: React.FC<IntroOverlayProps> = ({ show }) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.5, ease: 'easeOut' } }}
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-black text-white"
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-900 text-white"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_35%,hsl(163_84%_37%_/_0.25),transparent_50%)]" />
           <motion.div
             initial="hidden"
             animate="show"
@@ -24,7 +23,7 @@ const IntroOverlay: React.FC<IntroOverlayProps> = ({ show }) => {
               hidden: {},
               show: {
                 transition: {
-                  staggerChildren: 0.18
+                  staggerChildren: 0.12
                 }
               }
             }}
@@ -34,19 +33,27 @@ const IntroOverlay: React.FC<IntroOverlayProps> = ({ show }) => {
               <div key={word} className="overflow-hidden">
                 <motion.p
                   variants={{ hidden: { y: '100%' }, show: { y: 0 } }}
-                  transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
-                  className="heading-display text-[2.6rem] font-extrabold leading-[0.95] sm:text-[4.8rem]"
+                  transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+                  className="heading-display text-4xl font-bold leading-tight sm:text-5xl"
                 >
                   {word}
                 </motion.p>
               </div>
             ))}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-4 text-slate-300 text-sm"
+            >
+              Your learning journey starts here
+            </motion.p>
           </motion.div>
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1.1, delay: 0.35, ease: 'easeInOut' }}
-            className="absolute bottom-24 h-[2px] w-40 origin-left bg-white/70"
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeInOut' }}
+            className="absolute bottom-24 h-1 w-32 origin-left bg-amber-600 rounded-full"
           />
         </motion.div>
       )}

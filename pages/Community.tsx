@@ -11,7 +11,6 @@ export default function Community() {
     {
       id: 1,
       author: 'Sarah Chen',
-      avatar: 'https://placehold.co/150x400',
       time: '2 hours ago',
       content: 'Just completed my first React project! 🎉 Built a todo app with hooks and context API. The learning curve was steep but totally worth it. Any tips for optimizing performance?',
       likes: 24,
@@ -21,7 +20,6 @@ export default function Community() {
     {
       id: 2,
       author: 'Mike Rodriguez',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
       time: '5 hours ago',
       content: 'Looking for study buddies for the upcoming AWS certification exam. Anyone interested in forming a study group? We could meet virtually twice a week.',
       likes: 18,
@@ -31,7 +29,6 @@ export default function Community() {
     {
       id: 3,
       author: 'Emily Johnson',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
       time: '1 day ago',
       content: 'Sharing my Python data analysis project on customer behavior patterns. Used pandas, matplotlib, and scikit-learn. Open to feedback and collaboration!',
       likes: 42,
@@ -56,7 +53,6 @@ export default function Community() {
       const post = {
         id: posts.length + 1,
         author: 'You',
-        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
         time: 'Just now',
         content: newPost,
         likes: 0,
@@ -78,7 +74,7 @@ export default function Community() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-amber-50">
       <Header />
       <PageIntroOverlay title="Community" subtitle="Connect With Peers" />
 
@@ -90,31 +86,31 @@ export default function Community() {
         >
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Community</span> Hub
+              <span className="text-amber-700">Community</span> Hub
             </h1>
-            <p className="text-lg text-foreground/60 max-w-2xl mb-6">
-              Connect, collaborate, and learn with thousands of developers worldwide. Share project ideas, ask questions, 
-              receive feedback, and build meaningful relationships within a vibrant community of learners and professionals.
+            <p className="text-lg text-slate-700 max-w-2xl mb-6">
+              Connect, collaborate, and learn with real developers. Share project ideas, ask questions, 
+              receive feedback, and build meaningful relationships within a genuine community of learners and professionals.
             </p>
-            <div className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent w-32 mb-6" />
+            <div className="h-px bg-amber-200 w-32 mb-6" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="lg:col-span-3">
               <GlassCard className="mb-6">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-semibold">Y</span>
+                  <div className="w-10 h-10 bg-amber-200 rounded-full flex items-center justify-center">
+                    <span className="text-amber-900 font-semibold">Y</span>
                   </div>
                   <button
                     onClick={() => setShowNewPost(!showNewPost)}
-                    className="flex-1 px-4 py-2 bg-muted rounded-lg text-left text-muted-foreground hover:bg-accent transition-colors"
+                    className="flex-1 px-4 py-2 bg-amber-100 rounded-lg text-left text-slate-600 hover:bg-amber-200 transition-colors"
                   >
                     What's on your mind?
                   </button>
                   <button
                     onClick={() => setShowNewPost(!showNewPost)}
-                    className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200"
+                    className="p-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition-all duration-200"
                   >
                     <Plus className="w-5 h-5" />
                   </button>
@@ -131,19 +127,19 @@ export default function Community() {
                       value={newPost}
                       onChange={(e) => setNewPost(e.target.value)}
                       placeholder="Share your thoughts, ask questions, or showcase your projects..."
-                      className="w-full p-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      className="w-full p-3 bg-white border border-amber-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none text-slate-900"
                       rows={4}
                     />
                     <div className="flex justify-end space-x-2 mt-3">
                       <button
                         onClick={() => setShowNewPost(false)}
-                        className="px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                        className="px-4 py-2 text-amber-700 hover:text-amber-900 transition-colors"
                       >
                         Cancel
                       </button>
                       <button
                         onClick={handleNewPost}
-                        className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200"
+                        className="px-6 py-2 bg-amber-700 text-white font-medium rounded-lg hover:bg-amber-800 transition-all duration-200"
                       >
                         Post
                       </button>
@@ -161,47 +157,40 @@ export default function Community() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <GlassCard>
-                      <div className="flex items-start space-x-4">
-                        <img
-                          src={post.avatar}
-                          alt={post.author}
-                          className="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center space-x-2 mb-2">
-                            <h3 className="font-semibold">{post.author}</h3>
-                            <span className="text-sm text-muted-foreground">{post.time}</span>
-                          </div>
-                          <p className="text-foreground mb-4">{post.content}</p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <h3 className="font-semibold text-amber-900">{post.author}</h3>
+                          <span className="text-sm text-slate-500">{post.time}</span>
+                        </div>
+                        <p className="text-slate-700 mb-4">{post.content}</p>
 
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.map((tag, tagIndex) => (
-                              <span
-                                key={tagIndex}
-                                className="px-2 py-1 bg-blue-500/10 text-blue-600 text-xs font-medium rounded-full"
-                              >
-                                #{tag}
-                              </span>
-                            ))}
-                          </div>
-
-                          <div className="flex items-center space-x-6 text-muted-foreground">
-                            <button
-                              onClick={() => handleLike(post.id)}
-                              className="flex items-center space-x-2 hover:text-red-500 transition-colors"
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {post.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full"
                             >
-                              <Heart className="w-5 h-5" />
-                              <span>{post.likes}</span>
-                            </button>
-                            <button className="flex items-center space-x-2 hover:text-blue-500 transition-colors">
-                              <MessageCircle className="w-5 h-5" />
-                              <span>{post.comments}</span>
-                            </button>
-                            <button className="flex items-center space-x-2 hover:text-green-500 transition-colors">
-                              <Share className="w-5 h-5" />
-                              <span>Share</span>
-                            </button>
-                          </div>
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex items-center space-x-6 text-slate-600">
+                          <button
+                            onClick={() => handleLike(post.id)}
+                            className="flex items-center space-x-2 hover:text-amber-700 transition-colors"
+                          >
+                            <Heart className="w-5 h-5" />
+                            <span>{post.likes}</span>
+                          </button>
+                          <button className="flex items-center space-x-2 hover:text-amber-700 transition-colors">
+                            <MessageCircle className="w-5 h-5" />
+                            <span>{post.comments}</span>
+                          </button>
+                          <button className="flex items-center space-x-2 hover:text-amber-700 transition-colors">
+                            <Share className="w-5 h-5" />
+                            <span>Share</span>
+                          </button>
                         </div>
                       </div>
                     </GlassCard>

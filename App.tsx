@@ -15,6 +15,7 @@ import Roadmap from './pages/Roadmap';
 import Arcade from './pages/Arcade';
 import Community from './pages/Community';
 import Market from './pages/Market';
+import Mentor from './pages/Mentor';
 import NotFound from './pages/NotFound';
 
 const pageTransition = {
@@ -50,6 +51,7 @@ const AnimatedRoutes: React.FC = () => {
         <Route path="/arcade" element={<RouteShell><Arcade /></RouteShell>} />
         <Route path="/community" element={<RouteShell><Community /></RouteShell>} />
         <Route path="/market" element={<RouteShell><Market /></RouteShell>} />
+        <Route path="/mentor" element={<RouteShell><Mentor /></RouteShell>} />
         <Route path="*" element={<RouteShell><NotFound /></RouteShell>} />
       </Routes>
     </AnimatePresence>

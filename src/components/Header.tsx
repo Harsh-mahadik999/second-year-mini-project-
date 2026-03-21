@@ -14,7 +14,8 @@ const Header = () => {
     { name: 'Roadmap', href: '/roadmap' },
     { name: 'Arcade', href: '/arcade' },
     { name: 'Community', href: '/community' },
-    { name: 'Market Intel', href: '/market' }
+    { name: 'Market Intel', href: '/market' },
+    { name: 'AI Mentor', href: '/mentor' }
   ];
 
   const handleLogout = () => {
@@ -23,35 +24,35 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-amber-100 bg-amber-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white text-xs font-bold">
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-700 text-white font-bold text-sm">
               LA
             </div>
-            <span className="heading-display text-xl font-extrabold text-black">
+            <span className="heading-display text-lg font-bold text-amber-900">
               Les Studio
             </span>
           </Link>
 
           {isLoggedIn && (
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                  className={`relative px-1 py-2 text-sm font-medium transition-colors duration-200 ${
                     location.pathname === item.href
-                      ? 'text-black'
-                      : 'text-black/60 hover:text-black'
+                      ? 'text-amber-900 font-semibold'
+                      : 'text-slate-600 hover:text-amber-900'
                   }`}
                 >
                   {item.name}
                   {location.pathname === item.href && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-x-0 -bottom-px h-0.5 bg-black"
+                      className="absolute inset-x-0 -bottom-0.5 h-1 bg-amber-600 rounded-full"
                     />
                   )}
                 </Link>
@@ -59,30 +60,30 @@ const Header = () => {
             </div>
           )}
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
             {isLoggedIn ? (
               <div className="flex items-center space-x-2">
-                <button className="rounded-lg border border-black/15 bg-white/70 p-2 text-black/70 transition-colors hover:bg-white">
-                  <User className="w-4 h-4" />
+                <button className="rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-700 transition-colors hover:bg-amber-100 hover:text-amber-900">
+                  <User className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="rounded-lg border border-black/15 bg-white/70 p-2 text-black/70 transition-colors hover:bg-white"
+                  className="rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-700 transition-colors hover:bg-red-50 hover:text-red-600"
                 >
-                  <LogOut className="w-4 h-4" />
+                  <LogOut className="w-5 h-5" />
                 </button>
               </div>
             ) : (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <Link
                   to="/login"
-                  className="px-4 py-2 text-sm font-medium text-black/65 hover:text-black transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-amber-900 transition-colors"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-black/85"
+                  className="rounded-lg bg-amber-700 px-5 py-2 text-sm font-semibold text-white transition-all duration-200 hover:bg-amber-800"
                 >
                   Contact
                 </Link>
@@ -92,7 +93,7 @@ const Header = () => {
             {isLoggedIn && (
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="rounded-lg border border-black/15 bg-white/70 p-2 text-black/70 transition-colors hover:bg-white md:hidden"
+                className="rounded-lg border border-amber-200 bg-amber-50 p-2 text-amber-700 transition-colors hover:bg-amber-100 md:hidden"
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -106,18 +107,18 @@ const Header = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-black/10 py-4 md:hidden"
+              className="border-t border-amber-100 py-4 md:hidden"
             >
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`block px-3 py-2 text-sm font-medium transition-colors rounded-lg mb-1 ${
                     location.pathname === item.href
-                      ? 'bg-black text-white'
-                      : 'text-black/60 hover:bg-black/5 hover:text-black'
-                  } rounded-lg mb-1`}
+                      ? 'bg-amber-100 text-amber-900 font-semibold'
+                      : 'text-slate-600 hover:bg-amber-50 hover:text-amber-900'
+                  }`}
                 >
                   {item.name}
                 </Link>

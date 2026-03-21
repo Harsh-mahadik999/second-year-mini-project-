@@ -13,7 +13,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm your AI Career Mentor. I'm optimzed to help you navigate your tech career. Ask me anything about career paths, skills, interviews, or industry trends.",
+      text: "Hello! I'm your AI Career Mentor. I'm optimized to help you navigate your tech career. Ask me anything about career paths, skills, interviews, salaries, or industry trends!",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -22,65 +22,58 @@ const ChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Expanded knowledge base simulating a more advanced AI
-  const botKnowledgeBase: Record<string, string[]> = {
-    'trends': [
-      "Generative AI and LLMs are currently dominating",
-      "Cybersecurity demand is at an all-time high",
-      "Edge computing is gaining traction",
-      "Sustainable/Green tech is becoming a priority",
-      "DevOps and Platform Engineering are evolving rapidly"
-    ],
-    'frontend': [
-      "React ecosystem (Next.js, Remix) is standard",
-      "TypeScript is essential for modern frontend",
-      "Performance optimization (Core Web Vitals) is critical",
-      "Accessibility (a11y) is a must-have skill",
-      "CSS frameworks like Tailwind are widely adopted"
-    ],
-    'backend': [
-      "Python and Node.js remain top choices",
-      "Go and Rust are gaining significant adoption for performance",
-      "Microservices architecture knowledge is highly valued",
-      "GraphQL vs REST API design patterns",
-      "Containerization (Docker/K8s) is expected"
-    ],
-    'salary': [
-      "Salaries vary by location and experience",
-      "Remote roles often offer competitive SF/NY based pay",
-      "Specialized skills like AI/ML command a premium",
-      "Negotiation is key - always research market rates first"
-    ]
-  };
+  const API_KEY = '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';
+  const API_ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
 
-  const generateResponse = (query: string): string => {
-    const lowerQuery = query.toLowerCase();
+  const generateResponse = async (query: string): Promise<string> => {
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${API_KEY}`,
+          'HTTP-Referer': 'https://les-studio.com',
+          'X-Title': 'Les Studio - AI Career Mentor'
+        },
+        body: JSON.stringify({
+          model: 'openai/gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content: `You are an expert AI Career Mentor specializing in tech careers. You provide personalized advice on:
+- Career paths and roadmaps in tech
+- Skill development and learning strategies
+- Salary trends and market analysis
+- Interview preparation
+- Industry trends and technologies
+- Job search strategies
+- Remote work opportunities
+- Professional development
 
-    if (lowerQuery.includes('hello') || lowerQuery.includes('hi')) {
-      return "Hello there! Ready to accelerate your career? What's on your mind today?";
+Be concise, helpful, and practical in your responses. Focus on actionable advice.`
+            },
+            {
+              role: 'user',
+              content: query
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 1000
+        })
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('API Error:', error);
+        return "I'm having trouble connecting to my AI brain right now. Please try again in a moment!";
+      }
+
+      const data = await response.json();
+      return data.choices[0].message.content || "I couldn't generate a response. Please try again.";
+    } catch (error) {
+      console.error('Error calling API:', error);
+      return "I'm experiencing technical difficulties. Please try again later!";
     }
-
-    if (lowerQuery.includes('trend')) {
-      return `Here are the top trends I'm seeing:\n\n• ${botKnowledgeBase.trends.join('\n• ')}\n\nWhich of these interests you most?`;
-    }
-
-    if (lowerQuery.includes('frontend') || lowerQuery.includes('react') || lowerQuery.includes('web')) {
-      return `For Frontend development:\n\n• ${botKnowledgeBase.frontend.join('\n• ')}\n\nFocusing on these will make you very hireable!`;
-    }
-
-    if (lowerQuery.includes('backend') || lowerQuery.includes('server') || lowerQuery.includes('api')) {
-      return `In the Backend space:\n\n• ${botKnowledgeBase.backend.join('\n• ')}\n\nDo you have a preferred language?`;
-    }
-
-    if (lowerQuery.includes('salary') || lowerQuery.includes('pay') || lowerQuery.includes('money')) {
-      return `Regarding compensation:\n\n• ${botKnowledgeBase.salary.join('\n• ')}\n\nI can help you prepare for salary negotiations if you like.`;
-    }
-
-    if (lowerQuery.includes('roadmap')) {
-      return "I can generate a personalized roadmap for you. Are you interested in Frontend, Backend, Full Stack, or Data Science?";
-    }
-
-    return "That's an interesting topic. To give you the best advice, could you clarify your specific goal or question? I can help with roadmaps, skill analysis, interview prep, and more.";
   };
 
   const handleSend = async () => {
@@ -97,11 +90,8 @@ const ChatBot = () => {
     setInput('');
     setIsTyping(true);
 
-    // Simulate variable processing time for "thinking" effect
-    const processingTime = Math.random() * 1000 + 1000;
-
-    setTimeout(() => {
-      const responseText = generateResponse(userMessage.text);
+    try {
+      const responseText = await generateResponse(userMessage.text);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: responseText,
@@ -109,8 +99,18 @@ const ChatBot = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error in handleSend:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Sorry, I encountered an error. Please try again!",
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, processingTime);
+    }
   };
 
   useEffect(() => {
